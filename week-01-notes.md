@@ -83,3 +83,49 @@ This is a safety feature. Because FastAPI has dozens of settings, the developers
     *   `Annotated[str, Doc(...)]` means: "This setting must be **Text** (`str`), and here is some **Documentation** (`Doc`) about it."
 
 **Summary**: When you see `[]` inside the `def __init__(...)` section, it's usually part of the **Type Hint** (the rules for what data is allowed). When you see `[]` in your own code like `tags = ["users"]`, that's usually the **Data** itself!
+
+---
+
+# Day 2: Advanced Python Patterns
+
+## 9. What are Context Managers (`with` statement)?
+**Answer:** Think of them as a **"Safety Sandwich"** or the **"Automatic Fridge."**
+
+*   **Analogy**: When you cook, you have to remember to put the milk back in the fridge. If you forget, it spoils. A Context Manager is like a fridge that automatically opens when you reach for milk and closes the moment you're done.
+*   **How it works**: 
+    *   `__enter__`: The "Setup" (Opening the fridge).
+    *   `__exit__`: The "Cleanup" (Closing the fridge automatically).
+*   **Real-World Example**: **Database Connections**. You open a connection, run your query, and the Context Manager ensures the connection is closed even if your code crashes. This prevents "Database Leaks."
+
+---
+
+## 10. What are Generators (`yield`)?
+**Answer:** Think of this as the **"Buffet vs. Waiter"** approach.
+
+*   **Analogy**: 
+    *   **List (Buffet)**: You prepare ALL the food and put it on the table at once. It takes a lot of space (Memory) and prep time.
+    *   **Generator (Waiter)**: The waiter brings you one small plate at a time. You finish one, and they bring the next. This takes very little space (Memory) because you only have one plate at a time.
+*   **How it works**: The `yield` keyword **pauses** the function and hands over one piece of data. The function resumes only when the next piece is requested.
+*   **Real-World Example**: **Streaming a 2GB file**. Instead of loading the whole 2GB into your RAM (which might crash your computer), a Generator "yields" small chunks of the file to the user's browser one by one.
+
+---
+
+# Linear Algebra for ML
+
+## 11. What is a Vector and how is it represented in space?
+**Answer:** A vector is the fundamental building block of Linear Algebra. You can think of it in three ways:
+1.  **The Physics View**: An **arrow** pointing in space that has a specific **length** and **direction**.
+2.  **The Computer Science View**: An **ordered list of numbers** (like `[7, 3]`).
+3.  **The Visual View**: On a grid, a vector is an arrow that starts at the **origin (0,0)** and ends at a specific coordinate. 
+
+*   **Example**: A vector `[4, 2]` tells you to move 4 steps to the right and 2 steps up.
+
+## 12. How is a Vector represented on a graph in an ML application?
+**Answer:** In Machine Learning, we use vectors to represent **"Features"** or traits of data. Each axis on the graph represents a different piece of information.
+
+*   **Real-World Example (House Pricing)**:
+    *   **Axis X**: Square footage of the house.
+    *   **Axis Y**: Number of bedrooms.
+    *   If a house has 2000 sq ft and 3 bedrooms, it becomes a **Vector**: `[2000, 3]`.
+*   **On the Graph**: This house is represented as a single **point** (or an arrow pointing to that point) in a 2D space. 
+*   **The Power of ML**: By representing data as vectors, a computer can use math to calculate the "distance" between two houses to see how similar they are!
